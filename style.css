@@ -1,0 +1,236 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+
+}
+
+body{
+    transition: background .3s ease-out;
+}
+.nav{
+    width: 71%;
+    display: flex;
+    justify-content: center;
+    margin: 25px auto;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.nav #nombre{
+    position: absolute;
+    text-transform: uppercase;
+    color: rgb(2, 1, 1);
+    left: 0;
+    color: black;
+    font-size: 29px;
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav #nombre.oscuro{
+     color: #ffff;
+}
+#input{
+    font-size: 16px;
+    padding: 7px;
+    border: none;
+    background: rgb(226, 226, 226);
+    outline: none;
+    margin-right: 10px;
+    position: relative;
+    width: 220px;
+    border-radius: 5px;
+    color: rgb(26, 26, 26);
+}
+#input:focus{
+    background: #ffff;
+    box-shadow: 0px 0px 2px 2px rgb(90, 181, 235);
+}
+
+button{
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background .2s ease;
+    height: 35px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button:hover{
+    background: rgb(226, 226, 226);
+}
+.ContHamburguer{
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.hamburguer{
+    height: 4px;
+    width: 30px;
+    background: black;
+    border-radius: 2px;
+    transition: all .5s ease-in-out;
+    position: absolute;
+}
+.hamburguer::before,
+.hamburguer::after{
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 30px;
+    border-radius: 2px;
+    transition: all .5s ease-in-out;
+    background: black;
+}
+.hamburguer::before{
+    transform: translateY(-8px);
+}
+.hamburguer::after{
+    transform: translateY(8px);
+}
+.ContHamburguer.open .hamburguer{
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+}
+.ContHamburguer.open .hamburguer::before{
+    transform: rotate(45deg) translate(35px, -35px);
+}
+.ContHamburguer.open .hamburguer::after{
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+.contenedor{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    width: 80%;
+    margin: 20px auto;
+    grid-gap: 20px;
+}
+.card{
+    width: 200px;
+    font-size: 22px;
+    margin: 0 auto;
+    padding: 12px;
+    border-radius: 5px;
+    transition: .3s ease-out;
+    background: rgb(240, 240, 240);
+    box-shadow: 0px 0px 5px 1px rgb(90, 181, 235);
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card.cardDark{
+    background: black;
+    color: #fff;
+}
+.card img{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+}
+#titulo{
+    color: rgb(37, 37, 37);
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+.card-text{
+    color: rgb(37, 37, 37);
+    font-weight: bold;
+    padding: 5px;
+    text-align: center;
+    
+    
+}
+.fa-sun{
+    display: none;
+    animation: animar .4s ease-out;
+    color: rgb(179, 179, 0);
+    font-size: 20px;
+}
+.fa-moon{
+    animation: animar .4s ease-out;
+    font-size: 20px;
+    
+}
+.fa-sun.dark{
+    display: block;
+}
+.fa-moon.dark{
+    display: none;
+}
+
+body.dark{
+    background:rgb(34, 34, 34);
+    transition: background .3s ease-out;
+    color: #ffff;
+}
+#input.dark{
+    background: rgb(73, 73, 73);
+    color: rgb(221, 221, 221);
+}
+
+#total{
+    font-size: 18px;
+    color: rgb(122, 122, 122);
+    width: 71%;
+    margin: 0 auto;
+}
+
+
+
+@keyframes animar{
+    0%{transform: scale(0);}
+    100%{transform: scale(1);}
+}
+
+
+@media  screen and (max-width: 1120px){
+    .contenedor{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media  screen and (max-width: 900px){
+    .contenedor{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media  screen and (max-width: 770px){
+    #nombre{
+        display: none;
+    }
+    
+}
+@media  screen and (max-width: 400px){
+    .contenedor{
+        grid-template-columns: 1fr;
+    }
+    .card{
+        width: 90%;
+    }
+    .nav{
+        width: 100%;
+    }
+    #input{
+        width: 70%;
+        height: 50px;
+    }
+}
